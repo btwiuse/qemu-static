@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+for hello in hello/*; do $hello; done

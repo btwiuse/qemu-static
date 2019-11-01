@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc || true
+sudo tar -C / -xJvf qemu-static.tar.xz
+cat qemu-static.conf | while read -r line; do 
+  echo "$line" | sudo tee /proc/sys/fs/binfmt_misc/register;
+done
